@@ -4,37 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Twitter Metrics</title>
+    <title>Covid-19 Metrics</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
+    
     <div class="main-content">
         {{>navbar}}
+
         <div class="container" id="text">
-            <h1>Twitter Metrics Endpoint</h1>
-            <p>This endpoint allows access to the hourly metrics for 4 select twitter accounts</p>
+            <h1>Covid-19 Metrics Endpoint</h1>
+            <p>This endpoint allows access to the daily metrics for the number of Covid-19 cases in the United States</p>
         <h3>How to use:</h3>
         <p>All you have to do to use this API is to navigate to this webpage's url and add the following parameters to the url:</p>
         
         <ol>
-            <li>Date: yyyy-m-d Based on the UTC standards (REQUIRED)</li>
-            <li>Hour: 0-23 Based on the UTC hour (OPTIONAL)</li>
+            <li>Date: yyyy-m-d Based on the UTC standards (OPTIONAL)</li>
         </ol>
 
+        <p>If you navigate to the covid/metrics endpoint without any paramenters it will return all of the Covid-19 reported cases for all dates</p>
         <h3>Example:</h3>
-        <p>If I wanted to get the metrics for April 6th, 2020 at 9am UTC time, I would use the following url:</p>
-        <p>http://metricsapi-env.eba-3e3yt2se.us-west-1.elasticbeanstalk.com/twitter/metrics?date=2020-3-6&hour=8</p>
         <p>If I wanted to get all metrics for April 6th, 2020, I would use the following url:</p>
-        <p>http://metricsapi-env.eba-3e3yt2se.us-west-1.elasticbeanstalk.com/twitter/metrics?date=2020-3-6</p>
+        <p>http://metricsapi-env.eba-3e3yt2se.us-west-1.elasticbeanstalk.com/covid/metrics?date=2020-3-6</p>
         </div>
-
     </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>

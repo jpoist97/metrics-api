@@ -4,6 +4,7 @@ const cors = require('cors');
 const hbs = require('hbs');
 const twitterMetrics = require('./twitterMetrics');
 const gmailMetrics = require('./gmailMetrics');
+const covidMetrics = require('./covidMetrics');
 
 const app = express();
 
@@ -58,6 +59,37 @@ app.get('/twitter/metrics', (req, res) => {
     }
 });
 
+app.get('/covid/metrics', (req, res) => {
+
+    if(!req.query.date){
+        covidMetrics.readAllMetrics((error, data) => {
+            if(error){
+                return res.send({
+                    error: error
+                });
+            }else{
+                res.send({
+                    metrics: data
+                });
+            }
+        });
+    }else{
+        covidMetrics.readDailyMetrics(req.query.date, (error, data) => {
+            if(error){
+                return res.send({
+                    error: error
+                });
+            }else{
+                res.send({
+                    metrics: data
+                });
+            }
+        });
+    }
+
+
+});
+
 app.get('/gmail/metrics', (req, res) => {
     let hour = parseInt(req.query.hour);
 
@@ -88,7 +120,7 @@ app.get('/gmail/metrics', (req, res) => {
                 });
             }else{
                 res.send({
-                    metrics: data.Item
+                    metrics: data.Item,
                 });
             }
         });
@@ -110,6 +142,12 @@ app.get('/twitter', (req, res) => {
 
 app.get('/gmail', (req, res) => {
     res.render('gmail', {
+
+    });
+});
+
+app.get('/covid', (req, res) => {
+    res.render('covid', {
 
     });
 });
